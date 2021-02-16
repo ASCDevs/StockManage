@@ -1,12 +1,11 @@
 ﻿@model Dominio.Cliente
 
 @{
-    ViewBag.Title = "Cadastro de cliente";
+    ViewBag.Title = "Cadastrar Novo Cliente";
 }
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true)
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
@@ -29,24 +28,15 @@
             </div>
         </div>
 
-        <hr />
-
-        <div class="form-group">
-            @Html.Label("Endereços", htmlAttributes: new { @class = "control-label col-md-2"})
-        </div>
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Cadastrar" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Voltar para lista", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts{
-    @Scripts.Render("~/bundles/jquery.validate")
-}

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Dominio.Produto>
+
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<div style="margin: 10px 0 10px 0;">
+    @Html.ActionLink("Cadastrar Novo Produto", "Cadastrar", new { area = ""}, new { @class = "btn btn-default" })
+</div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoriaProduto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Preco)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoriaProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = item.ProdutoId }) |
+                @Html.ActionLink("Detalhes", "Detalhes", new { id = item.ProdutoId }) |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.ProdutoId })
+            </td>
+        </tr>
+    }
+
+</table>

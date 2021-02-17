@@ -43,6 +43,7 @@
     <Compile Include="ClienteAplicacao.cs" />
     <Compile Include="ClienteAplicacaoConstrutor.cs" />
     <Compile Include="EnderecoAplicacao.cs" />
+    <Compile Include="EnderecoAplicacaoConstrutor.cs" />
     <Compile Include="ProdutoAplicacao.cs" />
     <Compile Include="ProdutoAplicacaoConstrutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,7 +12,7 @@ namespace Dominio
 
         public int ProdutoId { get; set; }
 
-        [Required(ErrorMessage = "Preencha o nome do produto")]
+        [Required(ErrorMessage = "É obrigatório o nome do produto")]
         public string NomeProduto { get; set; }
 
         [Required(ErrorMessage ="Preencha a categoria do produto")]

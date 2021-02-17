@@ -91,7 +91,7 @@ namespace WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        public JsonResult verificaCpfUnico(string cpf)
+        public ActionResult verificaCpfUnico(string cpf)
         {
             //Constrói uma collection de CPFs já cadastrados
             //Encontrar melhor jeito de encontrar CPF já cadastrado

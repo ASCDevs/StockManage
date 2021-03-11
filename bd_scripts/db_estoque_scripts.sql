@@ -4,7 +4,7 @@ insert into produto(NomeProduto,CategoriaProduto,Quantidade,Preco) values("Tecla
 insert into produto(NomeProduto,CategoriaProduto,Quantidade,Preco) values("Monitor","Periferico",15,300);
 insert into produto(NomeProduto,CategoriaProduto,Quantidade,Preco) values("Placa-Mãe","Hardware",8,150);
 insert into produto(NomeProduto,CategoriaProduto,Quantidade,Preco) values("Processadorr","Hardware",10,800);
-
+delete from produto;
 -- Dados Cliente
 insert into cliente values("10298412354","Alexandre");
 insert into cliente values("10274687958","Eva");

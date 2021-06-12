@@ -25,3 +25,7 @@ create table Endereco(
     foreign key(cpf) references Cliente(cpf),
     primary key(EnderecoId,cpf)
 );
+
+select * from Produto;
+select * from cliente;
+select * from endereco;

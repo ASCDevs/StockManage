@@ -17,6 +17,11 @@ namespace WebUI.Controllers
             appProduto = ProdutoAplicacaoConstrutor.ProdutoAplicacaoADO();
         }
 
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             var listaDeProdutos = appProduto.ListarTodos();

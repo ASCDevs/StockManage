@@ -21,3 +21,23 @@ C:\Users\alexandre.santos15\Documents\Projetos de Teste C#\StockManage\Dominio\b
 C:\Users\alexandre.santos15\Documents\Projetos de Teste C#\StockManage\Dominio\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\alexandre.santos15\Documents\Projetos de Teste C#\StockManage\Dominio\bin\Debug\System.Web.Mvc.dll
 C:\Users\alexandre.santos15\Documents\Projetos de Teste C#\StockManage\Dominio\bin\Debug\System.Web.Mvc.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\Dominio.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\Dominio.pdb
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.Helpers.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.Mvc.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.Razor.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.WebPages.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.Helpers.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.Mvc.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.Razor.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.WebPages.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\obj\Debug\Dominio.csprojAssemblyReference.cache
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\obj\Debug\Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\obj\Debug\Dominio.csproj.CopyComplete
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\obj\Debug\Dominio.dll
+C:\Users\Alexandre\Documents\Projetos GIT\StockManage\Dominio\obj\Debug\Dominio.pdb

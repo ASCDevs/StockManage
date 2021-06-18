@@ -29,28 +29,19 @@
     <link rel="stylesheet" href="../../Content/AdminLTE/plugins/summernote/summernote-bs4.min.css">
 
 </head>
-<body class="hold-transition sidebar-mini layout-fixed" ">
-
-    @* Tela de carregamento *@
-    @*<div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="../../Content/AdminLTE/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>*@
-
-    
-    @*
-        @Html.ActionLink("StockManage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        <li>@Html.ActionLink("Produtos", "Index", "Home")</li>
-        <li>@Html.ActionLink("Clientes", "Index", "Cliente")</li>
-    *@
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+<body class="hold-transition sidebar-mini layout-fixed" >
+    <div class="wrapper">
+        
+        @Html.Partial("_MenuBar");
+        @Html.Partial("_MenuSide");
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
@@ -88,5 +79,6 @@
     <script src="../../Content/AdminLTE/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../../Content/AdminLTE/dist/js/pages/dashboard.js"></script>
+
 </body>
 </html>

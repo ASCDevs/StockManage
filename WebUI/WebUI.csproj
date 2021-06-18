@@ -2101,6 +2101,7 @@
     <Content Include="Content\AdminLTE\plugins\uplot\uPlot.iife.js" />
     <Content Include="Content\AdminLTE\plugins\uplot\uPlot.iife.min.js" />
     <Content Include="Content\AdminLTE\plugins\uplot\uPlot.min.css" />
+    <Content Include="Content\imgs\stock.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -2439,6 +2440,8 @@
     <Content Include="Content\LoginPage\scss\bootstrap\_variables.scss" />
     <Content Include="Content\LoginPage\scss\style.scss" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_MenuBar.cshtml" />
+    <Content Include="Views\Shared\_MenuSide.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

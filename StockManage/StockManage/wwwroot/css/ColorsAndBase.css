@@ -1,0 +1,32 @@
+﻿
+
+:root {
+    /*Definição de cores*/
+    --color-base-1: #fafafa;
+    --color-base-2: #f0f5ed;
+    --color-base-3: #bfc0c7;
+    /*Cores de texto e ícones*/
+    --text-color-1: #2b2e4a;
+    --text-color-2: #666a7b;
+    --text-color-3: #05c46b;
+    --text-color-3-alt: #03a157;
+}
+
+/* BASE */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.grid{
+    display: grid;
+}

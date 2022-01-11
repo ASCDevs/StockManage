@@ -12,5 +12,11 @@ namespace StockManage.Controllers
         {
             return View();
         }
+
+        public IActionResult Validate(){
+            //Fazer processo de autenticação
+
+            return RedirectToAction("Index","Home");
+        }
     }
 }

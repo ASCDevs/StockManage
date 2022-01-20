@@ -1,3 +1,5 @@
+-- DATABASE Created with Oracle 21c Express
+-- DDL - Data Definition Language
 create table Category(
     id_category NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     categ_name varchar(100),
@@ -71,3 +73,4 @@ create table OrderItem(
         FOREIGN KEY (id_product)
         REFERENCES Product(id_product)
 );
+

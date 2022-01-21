@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StockManage.Data;
+using StockManage.Data.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,22 @@ namespace StockManage
         {
             services.AddControllersWithViews();
             services.AddDbContext<StorageContext>(options =>
-                options.UseOracle(Configuration.GetConnectionString("OracleConnection")));
+                options.UseOracle(Configuration.GetConnectionString("OracleConnection"))
+            );
+
+            services.AddTransient<StorageStore>();
+
+            //Exemplo de config para resiliência de conexão
+            //options.UseSqlServer(builder.Configuration["ConnectionString"],
+            //sqlServerOptionsAction: sqlOptions =>
+            //{
+            //    sqlOptions.EnableRetryOnFailure(
+            //    maxRetryCount: 5,
+            //    maxRetryDelay: TimeSpan.FromSeconds(30),
+            //    errorNumbersToAdd: null);
+            //}
+            //);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

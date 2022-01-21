@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using StockManage.Data.Store;
 using StockManage.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace StockManage.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly StorageStore _storageStore;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, StorageStore storageStore)
         {
             _logger = logger;
+            _storageStore = storageStore;
         }
 
         public IActionResult Index()
@@ -28,6 +31,11 @@ namespace StockManage.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public async Task<IActionResult> categorias()
+        {
+            return Json(_storageStore.GetCategories());
         }
     }
 }

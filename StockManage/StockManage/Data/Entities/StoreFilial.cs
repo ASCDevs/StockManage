@@ -1,6 +1,6 @@
 ﻿namespace StockManage.Data.Entities
 {
-    public class Store
+    public class StoreFilial
     {
         public int id_store { get; set; }
         public string store_name { get; set; }

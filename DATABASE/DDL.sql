@@ -19,7 +19,7 @@ create table Product(
         REFERENCES Category(id_category)
 );
 
-create table Store(
+create table StoreFilial(
     id_store NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     store_name varchar2(200),
     store_address varchar2(200),

@@ -2,6 +2,7 @@
 {
     public class OrderItem
     {
+
         public int id_orderitem { get; set; }
         public int id_order { get; set; }
         public int id_product { get; set; }

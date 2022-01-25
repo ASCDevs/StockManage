@@ -3,6 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using StockManage.Data.Entities;
 using System;
+using System.Linq;
 
 namespace StockManage.Data
 {
@@ -16,15 +17,29 @@ namespace StockManage.Data
         //public DbSet<OrderItem> OrderItems { get; set; }
         public StorageContext(DbContextOptions<StorageContext> options) : base(options)
         {
-
+            MockData();
         }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.HasDefaultSchema("DEVUSER");
+        //}
 
         private void MockData()
         {
-            Category.Add(new Category { categ_name = "Roupas", dt_created = DateTime.Now});
-            Category.Add(new Category { categ_name = "Casa e Construção", dt_created = DateTime.Now });
-            Category.Add(new Category { categ_name = "Eletrodomésticos", dt_created = DateTime.Now });
-            Category.Add(new Category { categ_name = "Perfumes", dt_created = DateTime.Now });
+            if(!Category.Any())
+            {
+                Category.Add(new Category { categ_name = "Roupas", dt_created = DateTime.Now });
+                Category.Add(new Category { categ_name = "Casa e Construção", dt_created = DateTime.Now });
+                Category.Add(new Category { categ_name = "Eletrodomésticos", dt_created = DateTime.Now });
+                Category.Add(new Category { categ_name = "Perfumes", dt_created = DateTime.Now });
+                this.SaveChanges();
+            }
+            else
+            {
+                var test = 1;
+            }
+            
         }
     }
 }

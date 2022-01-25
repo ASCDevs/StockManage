@@ -28,7 +28,7 @@ namespace StockManage
         {
             services.AddControllersWithViews();
             services.AddDbContext<StorageContext>(options =>
-                options.UseOracle(Configuration.GetConnectionString("OracleConnection"))
+                options.UseSqlServer(Configuration.GetConnectionString("SqlServerConn"))
             );
 
             services.AddTransient<StorageStore>();

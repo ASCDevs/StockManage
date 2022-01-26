@@ -12,12 +12,12 @@ namespace StockManage.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //private readonly ILogger<HomeController> _logger;
         private readonly StorageStore _storageStore;
 
-        public HomeController(ILogger<HomeController> logger, StorageStore storageStore)
+        public HomeController( StorageStore storageStore) //ILogger<HomeController> logger
         {
-            _logger = logger;
+            //_logger = logger;
             _storageStore = storageStore;
         }
 
@@ -33,9 +33,7 @@ namespace StockManage.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public async Task<IActionResult> categorias()
-        {
-            return Json(_storageStore.GetCategories());
-        }
+        
+
     }
 }

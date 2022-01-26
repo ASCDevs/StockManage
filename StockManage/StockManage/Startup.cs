@@ -26,6 +26,25 @@ namespace StockManage
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigins",
+                    builder =>
+                    {
+                        //Permitir request de qualquer origem
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+
+
+                        //Requests de origens especificas
+                        //builder.WithOrigins("https://localhost:44328",
+                        //                        "http://127.0.0.1:5500",
+                        //                        "http://localhost:5500");
+                    });
+            });
+
             services.AddControllersWithViews();
             services.AddDbContext<StorageContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("SqlServerConn"))
@@ -61,6 +80,7 @@ namespace StockManage
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCors("AllowSpecificOrigins");
 
             app.UseRouting();
 

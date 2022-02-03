@@ -29,8 +29,8 @@ namespace StockManage.Controllers
         [HttpPost]
         public async Task<IActionResult> addorupdate([FromBody]Category category)
         {
-            string nome_categ = _storageStore.AddOrUpdateCategory(category);
-            return Json(new { result = "Categoria cadastrada foi "+nome_categ});
+            string name_categ = _storageStore.AddOrUpdateCategory(category);
+            return Json(new { result = "Categoria cadastrada foi "+ name_categ });
         }
     }
 }

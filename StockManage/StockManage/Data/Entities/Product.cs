@@ -7,6 +7,7 @@ namespace StockManage.Data.Entities
     {
         [Key]
         public int id_product { get; set; }
+        [Required]
         public int id_category { get; set; }
         public string prod_name { get; set; }
         public string prod_desc { get; set; }

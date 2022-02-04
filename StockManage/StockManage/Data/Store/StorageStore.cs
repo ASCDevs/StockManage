@@ -123,7 +123,66 @@ namespace StockManage.Data.Store
             return _storageContext.Product.ToList();
         }
 
+        public string AddOrUpdateStoreFilial(StoreFilial storeFilial)
+        {
+            if(storeFilial.id_store == 0)
+            {
+                _storageContext.StoreFilial.Add(storeFilial);
+                _storageContext.SaveChanges();
+                return "A loja " + storeFilial.store_name + " foi adicionada com sucesso!";
+            }
+            else
+            {
+                StoreFilial storeFound = _storageContext.StoreFilial.Find(storeFilial.id_store);   
+                if(storeFound == null)
+                {
+                    throw new Exception("A loja não foi encontrada");
+                }
+                else
+                {
+                    storeFound.store_name = storeFilial.store_name;
+                    storeFound.store_address = storeFilial.store_address;
+                    storeFound.store_city = storeFilial.store_city;
+                    storeFound.store_district = storeFilial.store_district;
+                    storeFound.store_country = storeFilial.store_country;
+                    _storageContext.SaveChanges();
+                    return "A loja "+storeFilial.store_name+" foi atualizada com sucesso";
+                }
+            }
+        }
 
+        public StoreFilial GetStoreFilial(int id_store)
+        {
+            StoreFilial storeFound = _storageContext.StoreFilial.Find(id_store);
+            if(storeFound == null)
+            {
+                throw new Exception("Loja não encontrada!");
+            }
+            else
+            {
+                return storeFound;
+            }
+        }
+
+        public bool DeleteStoreFilial(int id_store)
+        {
+            StoreFilial storeFound = _storageContext.StoreFilial.Find(id_store);
+            if( storeFound == null)
+            {
+                throw new Exception("Loja não encontrada!");
+            }
+            else
+            {
+                _storageContext.StoreFilial.Remove(storeFound);
+                _storageContext.SaveChanges();
+            }
+            return true;
+        }
+
+        public List<StoreFilial> GetStoreFilials()
+        {
+            return _storageContext.StoreFilial.ToList();
+        }
 
         
 

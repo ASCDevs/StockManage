@@ -11,6 +11,7 @@ namespace StockManage.Data
     {
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
+        public DbSet<StoreFilial> StoreFilial { get; set; }
         //public DbSet<Storage> Storage { get; set; }
         //public DbSet<OrderStatus> OrderStatus { get; set; }
         //public DbSet<OrderProduct> OrderProducts { get; set; }

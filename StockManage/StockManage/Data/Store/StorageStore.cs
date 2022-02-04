@@ -20,6 +20,7 @@ namespace StockManage.Data.Store
                 category.dt_created = DateTime.Now; 
                 _storageContext.Category.Add(category);
                 _storageContext.SaveChanges();
+                return "A categoria "+category.categ_name+" foi cadastrada com sucesso!";
             }
             else
             {
@@ -32,9 +33,10 @@ namespace StockManage.Data.Store
 
                     categoryUpdate.categ_name = category.categ_name;
                     _storageContext.SaveChanges();
-                };                
+                };
+                return "A categoria " + category.categ_name +" foi atualizada com sucesso!";
             }
-            return category.categ_name;
+            
         }
 
         public List<Category> GetCategories()
@@ -70,7 +72,21 @@ namespace StockManage.Data.Store
                 return "O produto " + product.prod_name + " foi alterado com sucesso!";
             }
 
-            
+        }
+
+        public bool DeleteCategory(int id_category)
+        {
+            Category categoryFound = _storageContext.Category.Find(id_category);
+            if(categoryFound == null)
+            {
+                throw new Exception("Categoria não encontrada");
+            }
+            else
+            {
+                _storageContext.Category.Remove(categoryFound);
+                _storageContext.SaveChanges();
+            }
+            return true;
         }
 
         public Product GetProduct(int id_product)
@@ -84,6 +100,7 @@ namespace StockManage.Data.Store
             {
                 return productFound;
             }
+
         }
         
         public bool DeleteProduct(int id_product)
@@ -96,7 +113,7 @@ namespace StockManage.Data.Store
             else
             {
                 _storageContext.Product.Remove(productFound);
-                _storageContext.SaveChanges(true);
+                _storageContext.SaveChanges();
             }
             return true;
         }

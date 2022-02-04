@@ -23,14 +23,49 @@ namespace StockManage.Controllers
 
         public async Task<IActionResult> list()
         {
-            return Json(_storageStore.GetCategories());
+            try
+            {
+                return Json(_storageStore.GetCategories());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(Json(new { message = ex.Message })); ;
+            }
+            
         }
 
         [HttpPost]
         public async Task<IActionResult> addorupdate([FromBody]Category category)
         {
-            string name_categ = _storageStore.AddOrUpdateCategory(category);
-            return Json(new { result = "Categoria cadastrada foi "+ name_categ });
+            try
+            {
+                string outputMessage = _storageStore.AddOrUpdateCategory(category);
+                return Ok(Json(new { message = outputMessage}));
+
+            }catch (Exception ex)
+            {
+                return BadRequest(Json(new { message = ex.Message }));
+            }
+        }
+
+        [HttpPost]
+        [Route("categorias/{id_category}/delete")]
+        public async Task<IActionResult> DeleteProduct(int id_category)
+        {
+            try
+            {
+                if (_storageStore.DeleteCategory(id_category))
+                {
+                    return Json(new { message = "Categoria excluída com sucesso!"});
+                }
+                else
+                {
+                    return BadRequest(Json(new { message = "Não foi possível excluir" }));
+                }
+            }catch (Exception ex)
+            {
+                return BadRequest(Json(new { message = ex.Message }));
+            }
         }
     }
 }

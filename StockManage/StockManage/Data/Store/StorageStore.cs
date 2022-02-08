@@ -184,6 +184,97 @@ namespace StockManage.Data.Store
             return _storageContext.StoreFilial.ToList();
         }
 
+        public string AddOrUpdateStorage(Storage storage)
+        {
+            if (storage.id_storage == 0)
+            {
+                _storageContext.Storage.Add(storage);
+                _storageContext.SaveChanges();
+                return $"O estoque do produto {storage.id_product} foi adicionado na loja id {storage.id_storage}!";
+            }
+            else
+            {
+                Storage storageFound = _storageContext.Storage.Find(storage.id_storage);
+                if (storageFound == null)
+                {
+                    throw new Exception("A loja não foi encontrada");
+                }
+                else
+                {
+
+                    storageFound.id_product = storage.id_product;
+                    storageFound.id_store = storage.id_store;
+                    storageFound.prod_qtd = storage.prod_qtd;
+                    storageFound.prod_limit = storage.prod_limit;
+                    storageFound.dt_update = DateTime.Now;
+                    _storageContext.SaveChanges();
+                    return $"O estoque do produto {storage.id_product} foi atualizado na loja id {storage.id_storage}!";
+                }
+            }
+        }
+
+        //Melhoria para lidar melhor com tipos de produtos (peso, liquido, peças) caso
+        //seja variavel os valores
+        public bool UpdateQtdStorage(int id_storage, int qtd_product)
+        {
+            Storage storageFound = _storageContext.Storage.Find(id_storage);
+            if(storageFound == null)
+            {
+                throw new Exception("Estoque não encontrado");
+            }
+            else
+            {
+                if(qtd_product>=0 && qtd_product <= storageFound.prod_limit)
+                {
+                    storageFound.prod_qtd = qtd_product;
+                    _storageContext.SaveChanges();
+                }
+                else
+                {
+                    if (qtd_product <= 0)
+                    {
+                        throw new Exception("Quantidade do produto é negativa");
+                    }
+
+                    if (qtd_product>storageFound.prod_limit)
+                    {
+                        throw new Exception($"Quantide do produto excede o limite({storageFound.prod_limit})");
+                    }
+                    
+                }
+            }
+            return true;
+        }
+
+        public bool UpdateLimitStorage(int id_storage, int limit_product)
+        {
+            Storage storageFound = _storageContext.Storage.Find();
+            if(storageFound == null)
+            {
+                throw new Exception("Estoque não econtrado");
+            }
+            else
+            {
+                if(limit_product < storageFound.prod_limit)
+                {
+                    throw new Exception($"Não é possível alterar o limite({limit_product}), pois é menor que a quantidade de produtos existente ({storageFound.prod_qtd})");
+                }
+                else if (limit_product <1){
+                    throw new Exception($"Limite mínimo do limite deve ser de 1");
+                }
+                else
+                {
+                    storageFound.prod_limit = limit_product;
+                    _storageContext.SaveChanges();
+                }
+            }
+            return true;
+        }
+
+        public List<Storage> GetStorageList()
+        {
+            return _storageContext.Storage.ToList();
+        }
         
 
     }

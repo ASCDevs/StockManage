@@ -201,10 +201,20 @@ namespace StockManage.Data.Store
                 }
                 else
                 {
+                    dynamic validQtd = storageFound.validateQtdStorage(storage.prod_qtd);
+                    dynamic validLimit = storageFound.validateLimitStorage(storage.prod_limit);
+                    if (!validQtd.isOK)
+                    {
+                        throw new Exception(validQtd.message);
+                    }
+
+                    if (!validLimit.isOK)
+                    {
+                        throw new Exception(validLimit.message);
+                    }
 
                     storageFound.id_product = storage.id_product;
                     storageFound.id_store = storage.id_store;
-                    //fazer métodos validadores para qtd e limite
                     storageFound.prod_qtd = storage.prod_qtd;
                     storageFound.prod_limit = storage.prod_limit;
                     storageFound.dt_update = DateTime.Now;
@@ -233,7 +243,7 @@ namespace StockManage.Data.Store
                 }
                 else
                 {
-                    if (qtd_product <= 0)
+                    if (qtd_product < 0)
                     {
                         throw new Exception("Quantidade do produto é negativa");
                     }

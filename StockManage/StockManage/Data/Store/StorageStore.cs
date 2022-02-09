@@ -204,6 +204,7 @@ namespace StockManage.Data.Store
 
                     storageFound.id_product = storage.id_product;
                     storageFound.id_store = storage.id_store;
+                    //fazer métodos validadores para qtd e limite
                     storageFound.prod_qtd = storage.prod_qtd;
                     storageFound.prod_limit = storage.prod_limit;
                     storageFound.dt_update = DateTime.Now;
@@ -227,6 +228,7 @@ namespace StockManage.Data.Store
                 if(qtd_product>=0 && qtd_product <= storageFound.prod_limit)
                 {
                     storageFound.prod_qtd = qtd_product;
+                    storageFound.dt_update = DateTime.Now;
                     _storageContext.SaveChanges();
                 }
                 else
@@ -265,10 +267,40 @@ namespace StockManage.Data.Store
                 else
                 {
                     storageFound.prod_limit = limit_product;
+                    storageFound.dt_update = DateTime.Now;
                     _storageContext.SaveChanges();
                 }
             }
             return true;
+        }
+
+        public bool DeleteStorage(int id_storage)
+        {
+            Storage storageFound = _storageContext.Storage.Find(id_storage);
+            if(storageFound == null)
+            {
+                throw new Exception("Estoque não encontrado");
+            }
+            else
+            {
+                _storageContext.Storage.Remove(storageFound);
+                _storageContext.SaveChanges();
+            }
+
+            return true;
+        }
+
+        public Storage GetStorageDetail(int id_storage)
+        {
+            Storage storageFound = _storageContext.Storage.Find(id_storage);
+            if( storageFound == null)
+            {
+                throw new Exception("Estoque não econtrado");
+            }
+            else
+            {
+                return storageFound;
+            }
         }
 
         public List<Storage> GetStorageList()

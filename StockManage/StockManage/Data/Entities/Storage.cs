@@ -12,5 +12,6 @@ namespace StockManage.Data.Entities
         public int prod_qtd { get; set; }
         public int prod_limit { get; set; }
         public DateTime dt_update { get; set; }
+
     }
 }
